@@ -60,7 +60,12 @@ local plugins = {
 	    {'hrsh7th/cmp-nvim-lsp'}, -- Required
 	    {'L3MON4D3/LuaSnip'},     -- Required
     }
-	}
+	},
+    {
+        'lewis6991/gitsigns.nvim'
+    },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {"ntpeters/vim-better-whitespace"}
 }
 
 local opts = {

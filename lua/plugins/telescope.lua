@@ -1,4 +1,9 @@
-return {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+require('telescope').setup{
+    defaults = {
+        path_display = {
+            truncate = 3,
+            shorten = 3
+        }
+
+    },
+}

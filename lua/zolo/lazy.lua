@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.2',
+		'nvim-telescope/telescope.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 
 	},
@@ -28,9 +28,11 @@ local plugins = {
 		'nvim-treesitter/nvim-treesitter', 
 		build =  ':TSUpdate'
 	},
-	{
-		'theprimeagen/harpoon', 
-	},
+    {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+    },
 	{
 		'mbbill/undotree'
 	},
@@ -42,7 +44,7 @@ local plugins = {
 	},
 	{
 	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v2.x',
+	  branch = 'v3.x',
 	  dependencies =
 	  {
 	    -- LSP Support

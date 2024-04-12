@@ -25,13 +25,13 @@ local plugins = {
 		end
 	},
 	{
-		'nvim-treesitter/nvim-treesitter', 
+		'nvim-treesitter/nvim-treesitter',
 		build =  ':TSUpdate'
 	},
     {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
     },
 	{
 		'mbbill/undotree'
@@ -67,7 +67,10 @@ local plugins = {
         'lewis6991/gitsigns.nvim'
     },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {"ntpeters/vim-better-whitespace"}
+    {"ntpeters/vim-better-whitespace"},
+    {
+        'tpope/vim-commentary'
+    }
 }
 
 local opts = {

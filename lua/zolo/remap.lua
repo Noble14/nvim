@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("n", "<c-j>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<c-k>",  "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<c-k>",  "<cmd>cprev<CR>zz")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 

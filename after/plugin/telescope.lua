@@ -1,7 +1,15 @@
 require('telescope').setup{
     defaults = {
         path_display = {
-            truncate = 3
+            truncate = 3,
+            shorten = 3
+        },
+        mappings = {
+            i = {
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
+            }
+
         }
 
     },
@@ -9,22 +17,22 @@ require('telescope').setup{
 
 local smart_case =
 {
-  "rg",
-  "--color=never",
-  "--no-heading",
-  "--with-filename",
-  "--line-number",
-  "--column",
-  "--smart-case"
+    "rg",
+    "--color=never",
+    "--no-heading",
+    "--with-filename",
+    "--line-number",
+    "--column",
+    "--smart-case"
 }
 local no_smart_case =
 {
-  "rg",
-  "--color=never",
-  "--no-heading",
-  "--with-filename",
-  "--line-number",
-  "--column",
+    "rg",
+    "--color=never",
+    "--no-heading",
+    "--with-filename",
+    "--line-number",
+    "--column",
 }
 local builtin = require('telescope.builtin')
 
@@ -42,21 +50,28 @@ vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>lg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>ps', function()
-	builtin.grep_string({search = vim.fn.input("Grep > "),
+    builtin.grep_string({search = vim.fn.input("Grep > "),
     use_regex = true
 })
 end)
 vim.keymap.set('n', '<leader>pw', function()
-	builtin.grep_string({
+    builtin.grep_string({
         search = vim.fn.expand("<cword>"),
     })
 end)
 
 
+vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, {})
+vim.keymap.set('n', '<leader>lhq', builtin.quickfixhistory, {})
+vim.keymap.set('n', '<leader>lhc', builtin.command_history, {})
+vim.keymap.set('n', '<leader>lhs', builtin.search_history, {})
 vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>lgs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>lr', builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>lb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>l;', builtin.command_history, {})
+vim.keymap.set('n', '<leader>lq', builtin.quickfixhistory, {})
+vim.keymap.set('n', '<leader>lj', builtin.jumplist, {})
 vim.keymap.set('n', '<leader>ll', builtin.resume, {})
 vim.keymap.set('n', '<leader>lc', builtin.git_bcommits, {})
 vim.keymap.set('v', '<leader>lc', function()
@@ -69,12 +84,12 @@ vim.keymap.set('v', '<leader>lc', function()
         print("end line: " .. lend2)
     end
     builtin.git_bcommits_range({
-       from = tonumber(start_line),
-       to = tonumber(end_line)
+        from = tonumber(start_line),
+        to = tonumber(end_line)
     })
 end)
 vim.keymap.set('n', '<leader>ld', function()
-	builtin.diagnostics({
+    builtin.diagnostics({
         bufnr = 0
     })
 end)

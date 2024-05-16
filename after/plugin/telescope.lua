@@ -54,6 +54,11 @@ vim.keymap.set('n', '<leader>ps', function()
     use_regex = true
 })
 end)
+vim.keymap.set('n', '<leader>sf', function()
+    builtin.grep_string({search = vim.fn.expand('%:t:r') ..":" .. vim.fn.expand("<cword>"),
+    use_regex = true
+})
+end)
 vim.keymap.set('n', '<leader>pw', function()
     builtin.grep_string({
         search = vim.fn.expand("<cword>"),

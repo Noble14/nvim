@@ -113,3 +113,5 @@ end)
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>bb', builtin.builtin, {})
 
+require "config.telescope.multigrep".setup()
+

@@ -105,9 +105,11 @@ local plugins = {
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
+    {
+        'Exafunction/codeium.vim'
+    },
 }
 
-local opts = {
+local opts = {}
 
-}
 require("lazy").setup(plugins, opts)

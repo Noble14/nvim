@@ -12,6 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    {
+        'mhinz/vim-rfc'
+    },
 	{
 		'nvim-telescope/telescope.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim' }

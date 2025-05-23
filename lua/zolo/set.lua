@@ -27,3 +27,17 @@ vim.opt.colorcolumn = "100"
 vim.opt.redrawtime = 0
 -- required for obsidian plugin
 vim.opt.conceallevel = 1
+
+if vim.env.SSH_TTY then
+    vim.g.clipboard = {
+        name = 'OSC 52',
+        copy = {
+            ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+            ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+        },
+        paste = {
+            ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+            ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+        },
+    }
+end

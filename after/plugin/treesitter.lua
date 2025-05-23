@@ -1,6 +1,6 @@
 local options = {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "erlang", "c", "lua", "vim", "vimdoc", "query" , "help", "javascript", "typescript", "rust"},
+  ensure_installed = { "erlang", "c", "lua", "vim", "vimdoc", "query" , "markdown", "help", "javascript", "python" }
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

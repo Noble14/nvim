@@ -47,10 +47,22 @@ local no_smart_case =
 }
 local builtin = require('telescope.builtin')
 
+local is_smart_case = true
+
 vim.keymap.set('n', '<leader>ts', function()
+    local case
+    if is_smart_case then
+        print("smart case")
+        is_smart_case = false
+        case = no_smart_case
+    else
+        print("no smart case")
+        is_smart_case = true
+        case = smart_case
+    end
     require('telescope').setup{
         defaults = {
-            vimgrep_arguments= no_smart_case
+            vimgrep_arguments= case
         }
     }
 

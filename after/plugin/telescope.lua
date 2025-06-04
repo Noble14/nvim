@@ -104,16 +104,16 @@ vim.keymap.set('n', '<leader>ll', builtin.resume, {desc = 'Continue from last li
 vim.keymap.set('n', '<leader>lc', builtin.git_bcommits, {desc = 'List buffer commits'})
 vim.keymap.set('v', '<leader>lc', function()
     local m = vim.fn.mode() -- detect current mode
+    local lstart2 = 0
+    local lend2 = 0
     if m == 'v' or m == 'V' or m == '\22' then -- <C-V>
         vim.cmd([[execute "normal! \<ESC>"]])
-        local lstart2 = vim.fn.getpos("'<")[2]
-        local lend2 = vim.fn.getpos("'>")[2]
-        print( lstart2)
-        print("end line: " .. lend2)
+        lstart2 = vim.fn.getpos("'<")[2]
+        lend2 = vim.fn.getpos("'>")[2]
     end
     builtin.git_bcommits_range({
-        from = tonumber(start_line),
-        to = tonumber(end_line)
+        from = tonumber(lstart2),
+        to = tonumber(lend2)
     })
 end)
 vim.keymap.set('n', '<leader>ld', function()

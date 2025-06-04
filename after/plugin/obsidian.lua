@@ -7,7 +7,7 @@ require("obsidian").setup(
         },
     },
     note_id_func = function(title)
-        suffix = ""
+        local suffix = ""
         if title == nil then
             for _ = 1, 4 do
                 suffix = suffix .. string.char(math.random(65, 90))

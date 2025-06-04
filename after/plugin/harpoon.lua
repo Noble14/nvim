@@ -8,8 +8,11 @@ harpoon:setup({
         -- save harpoon list to git branch
         key = function()
           local handle = io.popen("git branch --show-current 2> /dev/null")
-          local git_branch = handle:read("*a") or ""
-          handle:close()
+          local git_branch = ""
+          if handle then
+              git_branch = handle:read("*a") or ""
+              handle:close()
+          end
           git_branch = string.gsub(git_branch, "\n", "")
           local cwd = vim.fn.getcwd()
 

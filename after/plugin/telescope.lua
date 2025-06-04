@@ -90,19 +90,30 @@ end)
 
 
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, {desc = 'List definitions'})
-vim.keymap.set('n', '<leader>lhc', builtin.command_history, {desc = 'List command history'})
+vim.keymap.set('n', '<leader>lc', builtin.command_history, {desc = 'List command history'})
 vim.keymap.set('n', '<leader>lhs', builtin.search_history, {desc = 'List search history'})
 vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, {desc = 'List document symbols'})
-vim.keymap.set('n', '<leader>lgs', builtin.git_status, {desc = 'List git status'})
-vim.keymap.set('n', '<leader>lgb', builtin.git_branches, {desc = 'List git branches'})
 vim.keymap.set('n', '<leader>lr', builtin.lsp_references, {desc = 'List references'})
 vim.keymap.set('n', '<leader>lb', builtin.buffers, {desc = 'List buffers'})
+vim.keymap.set('n', '<leader>lo', builtin.oldfiles, {desc = 'List previous files'})
 vim.keymap.set('n', '<leader>l;', builtin.command_history, {desc = 'List command history'})
 vim.keymap.set('n', '<leader>lq', builtin.quickfixhistory, {desc = 'List quickfix history'})
 vim.keymap.set('n', '<leader>lj', builtin.jumplist, {desc = 'List jumps'})
 vim.keymap.set('n', '<leader>ll', builtin.resume, {desc = 'Continue from last list'})
-vim.keymap.set('n', '<leader>lc', builtin.git_bcommits, {desc = 'List buffer commits'})
-vim.keymap.set('v', '<leader>lc', function()
+vim.keymap.set('n', '<leader>ld', function()
+    builtin.diagnostics({
+        bufnr = 0
+    })
+end)
+
+vim.keymap.set('n', '<leader>bb', builtin.builtin, {desc = 'List builtins'})
+
+-- git remaps
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, {desc = 'List git commits'})
+vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, {desc = 'List buffer commits'})
+vim.keymap.set('n', '<leader>gS', builtin.git_status, {desc = 'List git status'})
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, {desc = 'List git branches'})
+vim.keymap.set('v', '<leader>gc', function()
     local m = vim.fn.mode() -- detect current mode
     local lstart2 = 0
     local lend2 = 0
@@ -116,13 +127,5 @@ vim.keymap.set('v', '<leader>lc', function()
         to = tonumber(lend2)
     })
 end)
-vim.keymap.set('n', '<leader>ld', function()
-    builtin.diagnostics({
-        bufnr = 0
-    })
-end)
-
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, {desc = 'List git commits'})
-vim.keymap.set('n', '<leader>bb', builtin.builtin, {desc = 'List builtins'})
 
 require "config.telescope.multigrep".setup()

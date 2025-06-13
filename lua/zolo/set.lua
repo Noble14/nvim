@@ -24,6 +24,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
 
+vim.cmd.colorscheme('catppuccin-macchiato')
 vim.opt.redrawtime = 0
 -- required for obsidian plugin
 vim.opt.conceallevel = 1

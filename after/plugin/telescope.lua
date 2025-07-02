@@ -109,23 +109,8 @@ end)
 vim.keymap.set('n', '<leader>bb', builtin.builtin, {desc = 'List builtins'})
 
 -- git remaps
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, {desc = 'List git commits'})
-vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, {desc = 'List buffer commits'})
+require "config.telescope.git_commit".setup()
 vim.keymap.set('n', '<leader>gS', builtin.git_status, {desc = 'List git status'})
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {desc = 'List git branches'})
-vim.keymap.set('v', '<leader>gc', function()
-    local m = vim.fn.mode() -- detect current mode
-    local lstart2 = 0
-    local lend2 = 0
-    if m == 'v' or m == 'V' or m == '\22' then -- <C-V>
-        vim.cmd([[execute "normal! \<ESC>"]])
-        lstart2 = vim.fn.getpos("'<")[2]
-        lend2 = vim.fn.getpos("'>")[2]
-    end
-    builtin.git_bcommits_range({
-        from = tonumber(lstart2),
-        to = tonumber(lend2)
-    })
-end)
 
 require "config.telescope.multigrep".setup()

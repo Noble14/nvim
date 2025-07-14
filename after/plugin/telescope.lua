@@ -82,12 +82,18 @@ vim.keymap.set('n', '<leader>sf', function()
     use_regex = true
 })
 end)
+
 vim.keymap.set('n', '<leader>pw', function()
     builtin.grep_string({
         search = vim.fn.expand("<cword>"),
     })
 end)
 
+vim.keymap.set('n', '<leader>gb', function ()
+    builtin.git_branches({
+        show_remote_tracking_branches = false
+    })
+end)
 
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, {desc = 'List definitions'})
 vim.keymap.set('n', '<leader>lc', builtin.command_history, {desc = 'List command history'})
@@ -111,6 +117,15 @@ vim.keymap.set('n', '<leader>bb', builtin.builtin, {desc = 'List builtins'})
 -- git remaps
 require "config.telescope.git_commit".setup()
 vim.keymap.set('n', '<leader>gS', builtin.git_status, {desc = 'List git status'})
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, {desc = 'List git branches'})
+vim.keymap.set('n', '<leader>gb', function ()
+    builtin.git_branches({
+        show_remote_tracking_branches = false
+    })
+end)
+vim.keymap.set('n', '<leader>gB', function ()
+    builtin.git_branches({
+        show_remote_tracking_branches = true
+    })
+end)
 
 require "config.telescope.multigrep".setup()

@@ -89,9 +89,10 @@ vim.keymap.set('n', '<leader>pw', function()
     })
 end)
 
-vim.keymap.set('n', '<leader>gb', function ()
-    builtin.git_branches({
-        show_remote_tracking_branches = false
+vim.keymap.set('n', '<leader>pW', function()
+    builtin.grep_string({
+        search = vim.fn.expand("<cword>"),
+        word_match = "-w"
     })
 end)
 

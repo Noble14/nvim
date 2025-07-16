@@ -46,13 +46,13 @@ end
 
 M.setup = function()
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>gc', function()
+    vim.keymap.set('n', '<leader>gC', function()
         builtin.git_commits({
             git_command = { "git", "log", '--pretty=%h %s|%cs %aN', "--abbrev-commit", "--", "." },
             entry_maker = git_entry_maker
         })
     end)
-    vim.keymap.set('n', '<leader>gC', function()
+    vim.keymap.set('n', '<leader>gc', function()
         builtin.git_bcommits({
             git_command = { "git", "log", '--pretty=%h %s|%cs %aN', "--abbrev-commit", "--follow" },
             entry_maker = git_entry_maker

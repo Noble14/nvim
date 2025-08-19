@@ -1,3 +1,5 @@
+local utils = require "telescope.utils"
+
 require('telescope').setup{
     defaults = {
         path_display = {
@@ -79,6 +81,12 @@ vim.keymap.set('n', '<leader>ps', function()
     use_regex = true
 })
 end)
+vim.keymap.set('n', '<leader>cs', function()
+    builtin.grep_string({search = vim.fn.input("Grep > "),
+    use_regex = true,
+    cwd = utils.buffer_dir()
+})
+end)
 vim.keymap.set('n', '<leader>sf', function()
     builtin.grep_string({search = vim.fn.expand('%:t:r') ..":" .. vim.fn.expand("<cword>"),
     use_regex = true
@@ -88,6 +96,12 @@ end)
 vim.keymap.set('n', '<leader>pw', function()
     builtin.grep_string({
         search = vim.fn.expand("<cword>"),
+    })
+end)
+vim.keymap.set('n', '<leader>cw', function()
+    builtin.grep_string({
+        search = vim.fn.expand("<cword>"),
+    cwd = utils.buffer_dir()
     })
 end)
 

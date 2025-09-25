@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open netrw" })
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open netrw" })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil, { desc = "Open Oil" })
 
 vim.keymap.set("n", "<M-f>", "<cmd>cnext<CR>zz", { desc = "Next quickfix item" })
 vim.keymap.set("n", "<M-d>",  "<cmd>cprev<CR>zz", { desc = "Previous quickfix item" })

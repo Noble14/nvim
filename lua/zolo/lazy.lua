@@ -28,7 +28,10 @@ local plugins = {
     },
 	{
 		'nvim-telescope/telescope.nvim',
-		dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+        }
 
 	},
 	{
@@ -115,9 +118,6 @@ local plugins = {
             { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
-    },
-    {
-        'Exafunction/codeium.vim'
     },
 }
 

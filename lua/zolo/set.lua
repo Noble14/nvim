@@ -41,4 +41,6 @@ if vim.env.SSH_TTY then
             ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
         },
     }
+else
+    vim.opt.clipboard = "unnamedplus"
 end
